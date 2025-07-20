@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Foam AR Label</title>
+    <title>Virtual Artwork Label</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
     <style>
@@ -13,37 +13,38 @@
     <a-scene embedded arjs>
       <a-marker preset="hiro">
 
-        <!-- Foam core box shadow -->
-      <!-- Foam core box shadow (vertical) -->
-<a-box 
-  position="0 0.5 0" 
-  width="1.6" 
-  height="1" 
-  depth="0.04" 
-  rotation="90 0 0"
-  color="#d9d9d9">
-</a-box>
+        <!-- Foam core shadow (vertical box) -->
+        <a-box 
+          position="0 0 0.03" 
+          width="1.6" 
+          height="1" 
+          depth="0.04" 
+          rotation="90 0 0"
+          color="#d9d9d9">
+        </a-box>
 
-<!-- Label face (vertical) -->
-<a-plane 
-  position="0 0.5 0.02" 
-  width="1.6" 
-  height="1" 
-  rotation="90 0 0"
-  color="#ffffff"
-  material="shader: flat; opacity: 0.95">
-</a-plane>
+        <!-- White label face (vertical plane) -->
+        <a-plane 
+          position="0 0 0.05" 
+          width="1.6" 
+          height="1" 
+          rotation="90 0 0"
+          color="#ffffff"
+          material="shader: flat; opacity: 0.95">
+        </a-plane>
 
-<!-- Text (vertical) -->
-<a-text 
-  value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-  align="center" 
-  width="1.4" 
-  position="0 0.5 0.03" 
-  rotation="90 0 0"
-  color="#111111">
-</a-text>
+        <!-- Artwork description (text) -->
+        <a-text 
+          value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
+          align="center" 
+          width="1.4" 
+          position="0 0 0.06" 
+          rotation="90 0 0"
+          color="#111111">
+        </a-text>
+
       </a-marker>
+
       <a-entity camera></a-entity>
     </a-scene>
   </body>
