@@ -12,11 +12,11 @@
   <body>
     <a-scene embedded arjs>
       <a-marker preset="hiro">
-        <!-- Floating 3D Text -->
+        <!-- Upright floating text, facing the user -->
         <a-text 
           value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 1 0"      <!-- X Y Z: floating 1 unit above marker -->
-          rotation="0 0 0" 
+          position="0 0.5 0" 
+          rotation="-90 0 0"       <!-- ROTATION is the key fix -->
           align="center"
           width="1.6"
           color="#ffffff"
