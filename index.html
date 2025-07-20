@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Foam-Backed Floating AR Text</title>
+    <title>Floating AR Label with Fade and Shadow</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
     <style>
@@ -13,28 +13,41 @@
     <a-scene embedded arjs>
       <a-marker preset="hiro">
 
-        <!-- Foam-backed rectangle (extruded box) -->
+        <!-- Foam-backed block -->
         <a-box 
-          position="0 1.2 -0.01"        <!-- Slightly behind the text -->
+          position="0 1.2 -0.01" 
           rotation="-90 0 0"
           width="3.5" 
           height="1.5" 
           depth="0.04" 
-          color="#eeeeee"              <!-- Light grey 'foam' backing -->
+          color="#eeeeee"
           shadow="receive: true">
         </a-box>
 
-        <!-- Text label -->
+        <!-- Drop shadow (blurred duplicate text slightly behind and darker) -->
         <a-text 
           value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 1.2 0"            <!-- Floating mid-air above the marker -->
+          position="0 1.2 -0.0015"      <!-- Slightly behind main text -->
           rotation="-90 0 0"
           align="center"
           width="3.2"
-          color="#1A1A1A"               <!-- 90% black -->
-          side="double"
-          shader="standard">
+          color="#000000"
+          opacity="0.15"
+          side="double">
         </a-text>
+
+        <!-- Main text with fade-in animation -->
+        <a-text 
+          value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
+          position="0 1.2 0"
+          rotation="-90 0 0"
+          align="center"
+          width="3.2"
+          color="#1A1A1A"
+          side="double"
+          opacity="0"
+          animation="property: opacity; from: 0; to: 1; dur: 1200; easing: ease-in-out"
+        ></a-text>
 
       </a-marker>
 
