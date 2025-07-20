@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Virtual Artwork Label</title>
+    <title>Floating AR Text Label</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
     <style>
@@ -12,37 +12,17 @@
   <body>
     <a-scene embedded arjs>
       <a-marker preset="hiro">
-
-        <!-- Foam shadow (vertical orientation, facing camera) -->
-        <a-box 
-          position="0 0.5 0" 
-          rotation="-90 0 0" 
-          width="1.6" 
-          height="1" 
-          depth="0.04" 
-          color="#d9d9d9">
-        </a-box>
-
-        <!-- Label face -->
-        <a-plane 
-          position="0 0.5 0.021" 
-          rotation="-90 0 0" 
-          width="1.6" 
-          height="1" 
-          color="#ffffff"
-          material="shader: flat; opacity: 0.95">
-        </a-plane>
-
-        <!-- Description text -->
+        <!-- Floating 3D Text -->
         <a-text 
           value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 0.5 0.03" 
-          rotation="-90 0 0" 
-          align="center" 
-          width="1.4" 
-          color="#111111">
-        </a-text>
-
+          position="0 1 0"      <!-- X Y Z: floating 1 unit above marker -->
+          rotation="0 0 0" 
+          align="center"
+          width="1.6"
+          color="#ffffff"
+          side="double"
+          shader="standard"
+        ></a-text>
       </a-marker>
 
       <a-entity camera></a-entity>
