@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Floating AR Label</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+    <style>body { margin: 0; overflow: hidden; }</style>
+  </head>
+  <body>
+    <a-scene embedded arjs>
+      <a-marker preset="hiro">
+
+        <!-- Foam-backed label (white box) -->
+        <a-plane 
+          width="1.6" 
+          height="1" 
+          position="0 0.6 0" 
+          rotation="-90 0 0"
+          color="#ffffff"
+          material="opacity: 0.96; shader: flat;"
+        ></a-plane>
+
+        <!-- Slight 3D thickness (foam core look) -->
+        <a-box 
+          depth="0.02" 
+          height="1" 
+          width="1.6" 
+          position="0 0.59 -0.01" 
+          rotation="-90 0 0"
+          color="#e0e0e0"
+        ></a-box>
+
+        <!-- Text Content -->
+        <a-text 
+          value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
+          position="0 0.61 0.01" 
+          rotation="-90 0 0"
+          align="center"
+          width="1.4"
+          color="#111111"
+        ></a-text>
+
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
