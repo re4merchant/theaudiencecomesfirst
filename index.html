@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Floating AR Text Label</title>
+    <title>Large Floating AR Text</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
     <style>
@@ -12,17 +12,19 @@
   <body>
     <a-scene embedded arjs>
       <a-marker preset="hiro">
-        <!-- Upright floating text, facing the user -->
+
+        <!-- Enlarged floating text, standing up, facing viewer -->
         <a-text 
           value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 0.5 0" 
-          rotation="-90 0 0"       <!-- ROTATION is the key fix -->
+          position="0 1.2 0"               <!-- Raise it higher into view -->
+          rotation="-90 0 0"              <!-- Face the viewer -->
           align="center"
-          width="1.6"
+          width="4"                       <!-- Increase width for screen-fill effect -->
           color="#ffffff"
           side="double"
-          shader="standard"
-        ></a-text>
+          shader="standard">
+        </a-text>
+
       </a-marker>
 
       <a-entity camera></a-entity>
