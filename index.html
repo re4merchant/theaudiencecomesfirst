@@ -13,29 +13,30 @@
     <a-scene embedded arjs>
       <a-marker preset="hiro">
 
-        <!-- White background plane -->
-        <a-plane 
-          position="0 1.2 -0.01"
-          rotation="-90 0 0"
-          width="4.4"
-          height="1.6"
-          color="#ffffff"
-          material="opacity: 0.85; shader: flat">
-        </a-plane>
+  <!-- White background plane (moved further back) -->
+  <a-plane 
+    position="0 1.2 -0.02"
+    rotation="-90 0 0"
+    width="4.4"
+    height="1.6"
+    color="#ffffff"
+    material="opacity: 0.85; shader: flat">
+  </a-plane>
 
-        <!-- Large black text floating above marker -->
-        <a-text 
-          value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 1.2 0"             
-          rotation="-90 0 0"            
-          align="center"
-          width="4"
-          color="#1A1A1A"
-          side="double"
-          shader="standard">
-        </a-text>
+  <!-- Large black text (moved further forward) -->
+  <a-text 
+    value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
+    position="0 1.2 0.01"             
+    rotation="-90 0 0"            
+    align="center"
+    width="4"
+    color="#1A1A1A"
+    side="double"
+    shader="standard"
+    material="transparent: true"
+  ></a-text>
 
-      </a-marker>
+</a-marker>
 
       <a-entity camera></a-entity>
     </a-scene>
