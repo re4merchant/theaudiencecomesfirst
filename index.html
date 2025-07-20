@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Floating AR Label with Fade and Shadow</title>
+    <title>Floating AR Label with Fade + Shadow</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
     <style>
@@ -11,35 +11,35 @@
   </head>
   <body>
     <a-scene embedded arjs>
+
       <a-marker preset="hiro">
 
-        <!-- Foam-backed block -->
+        <!-- Foam-backed block (rotated upright) -->
         <a-box 
-          position="0 1.2 -0.01" 
+          position="0 0.5 0.05"        <!-- Move up and slightly forward -->
           rotation="-90 0 0"
           width="3.5" 
           height="1.5" 
           depth="0.04" 
           color="#eeeeee"
-          shadow="receive: true">
-        </a-box>
+        ></a-box>
 
-        <!-- Drop shadow (blurred duplicate text slightly behind and darker) -->
+        <!-- Drop shadow text -->
         <a-text 
           value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 1.2 -0.0015"      <!-- Slightly behind main text -->
+          position="0 0.5 0.049"       <!-- Behind the main text slightly -->
           rotation="-90 0 0"
           align="center"
           width="3.2"
           color="#000000"
           opacity="0.15"
-          side="double">
-        </a-text>
+          side="double"
+        ></a-text>
 
-        <!-- Main text with fade-in animation -->
+        <!-- Main text -->
         <a-text 
           value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 1.2 0"
+          position="0 0.5 0.051"       <!-- Slightly in front of box -->
           rotation="-90 0 0"
           align="center"
           width="3.2"
@@ -52,6 +52,7 @@
       </a-marker>
 
       <a-entity camera></a-entity>
+
     </a-scene>
   </body>
 </html>
