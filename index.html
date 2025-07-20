@@ -1,48 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Floating AR Label</title>
+    <meta charset="utf-8" />
+    <title>Virtual AR Artwork Label</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
-    <style>body { margin: 0; overflow: hidden; }</style>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/aframe/mindar-image-aframe.prod.js"></script>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
+    <a-scene
+      mindar-image="imageTargetSrc: ./marker.mind; maxTrack: 1"
+      embedded
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      device-orientation-permission-ui="enabled: true"
+    >
+      <a-assets>
+        <img id="target-preview" src="./marker.jpg" />
+      </a-assets>
 
-        <!-- Foam-backed label (white box) -->
-        <a-plane 
-          width="1.6" 
-          height="1" 
-          position="0 0.6 0" 
-          rotation="-90 0 0"
-          color="#ffffff"
-          material="opacity: 0.96; shader: flat;"
-        ></a-plane>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-        <!-- Slight 3D thickness (foam core look) -->
-        <a-box 
-          depth="0.02" 
-          height="1" 
-          width="1.6" 
-          position="0 0.59 -0.01" 
-          rotation="-90 0 0"
-          color="#e0e0e0"
+      <a-entity mindar-image-target="targetIndex: 0">
+
+        <!-- Foam core shadow/depth -->
+        <a-box
+          position="0 0 -0.02"
+          width="1.6"
+          height="1"
+          depth="0.04"
+          color="#d9d9d9"
+          rotation="0 0 0"
         ></a-box>
 
-        <!-- Text Content -->
-        <a-text 
-          value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang" 
-          position="0 0.61 0.01" 
-          rotation="-90 0 0"
+        <!-- White label face -->
+        <a-plane
+          position="0 0 0"
+          width="1.6"
+          height="1"
+          color="#ffffff"
+          material="shader: flat; opacity: 0.95"
+        ></a-plane>
+
+        <!-- Floating artwork label text -->
+        <a-text
+          value="Echoes in Stillness\nLenticular print, 2025\nYeo Ker Siang"
+          position="0 0 0.01"
           align="center"
           width="1.4"
           color="#111111"
         ></a-text>
 
-      </a-marker>
-
-      <a-entity camera></a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
