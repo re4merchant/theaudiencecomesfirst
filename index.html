@@ -1,41 +1,47 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image.prod.js"></script>
-<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe-text-component/0.4.2/aframe-text-component.js"></script>
 
+    <!-- 1) A-Frame first -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!-- 2) Text component next -->
+    <script src="https://unpkg.com/aframe-text-component@0.5.0/dist/aframe-text-component.min.js"></script>
+    <!-- 3) MindAR core & A-Frame integration -->
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
+
   <body>
     <a-scene
-  mindar-image="imageTargetSrc: ./targets.mind;"
-  vr-mode-ui="enabled: false"
-  device-orientation-permission-ui="enabled: false"
->
-  <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      mindar-image="imageTargetSrc: ./targets.mind;"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-  <a-entity mindar-image-target="targetIndex: 0">
-    <!-- Your semi-transparent blue plane -->
-    <a-plane
-      color="blue"
-      opacity="0.5"
-      position="0 0 0"
-      height="0.552"
-      width="1"
-      rotation="0 0 0"
-    ></a-plane>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <!-- semi-transparent blue plane -->
+        <a-plane
+          color="blue"
+          opacity="0.5"
+          position="0 0 0"
+          height="0.552"
+          width="1"
+        ></a-plane>
 
-    <!-- Text on top of the plane -->
-    <a-entity
-      position="0 0 0.01"    <!-- slightly in front -->
-      text="value: Hello AR World!; 
-            align: center; 
-            width: 1.2; 
-            color: white; 
-            font: https://cdn.aframe.io/fonts/mozillavr.fnt"
-    ></a-entity>
-  </a-entity>
-</a-scene>
+        <!-- Text positioned just in front -->
+        <!-- note: comment moved *outside* of the tag! -->
+        <!-- slightly in front of the plane so it doesn’t z-fight -->
+        <a-entity
+          position="0 0 0.01"
+          text="value: Hello AR World!; 
+                align: center; 
+                width: 1.2; 
+                color: white; 
+                shader: msdf; 
+                font: https://cdn.aframe.io/fonts/mozillavr.fnt"
+        ></a-entity>
+      </a-entity>
+    </a-scene>
   </body>
 </html>
