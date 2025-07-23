@@ -2,13 +2,16 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- 1) A-Frame first -->
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <!-- 2) Text component next -->
-    <script src="https://unpkg.com/aframe-text-component@0.5.0/dist/aframe-text-component.min.js"></script>
-    <!-- 3) MindAR core & A-Frame integration -->
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+  <!-- 1) A-Frame core -->
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <!-- 2) A-Frame text component (must come *before* any use of `text`) -->
+  <script src="https://unpkg.com/aframe-text-component@0.5.0/dist/aframe-text-component.min.js"></script>
+  <!-- 3) MindAR core -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image.prod.js"></script>
+  <!-- 4) MindAR's A-Frame integration -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
   </head>
 
   <body>
